@@ -481,11 +481,9 @@ func applyK8sResourceFromTemplate(kubectlOptions k8s.KubectlOptions, templateFil
 // with the apiGroupSelector parameter the result can be narrowed by the resource group.
 // extraArgs can be any kubectl api-resources parameter.
 func listK8sResourceKinds(kubectlOptions k8s.KubectlOptions, apiGroupSelector string, extraArgs ...string) ([]string, error) {
-	logMsg := "Listing K8s resource kind"
 	args := []string{"api-resources", "--verbs", "list", "--output", "name", "--sort-by", "name"}
 
 	if apiGroupSelector != "" {
-		logMsg = fmt.Sprintf("%s group selector: %s", logMsg, apiGroupSelector)
 		args = append(args, "--api-group", apiGroupSelector)
 	}
 

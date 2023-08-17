@@ -56,9 +56,10 @@ bin/golangci-lint-${GOLANGCI_VERSION}: ## Download versioned golangci-lint.
 
 .PHONY: lint
 lint: bin/golangci-lint ## Run linter analysis.
-	bin/golangci-lint run -v --timeout=5m
+	bin/golangci-lint run -c ./.golangci.yml --timeout=5m
 	cd api && ../bin/golangci-lint run -c ../.golangci.yml --timeout=5m
 	cd properties && ../bin/golangci-lint run -c ../.golangci.yml --timeout=5m
+	cd tests/e2e && ../../bin/golangci-lint run -c ../../.golangci.yml --timeout=5m --build-tags e2e
 
 .PHONY: lint-fix
 lint-fix: bin/golangci-lint ## Run linter with automatic fixes.
