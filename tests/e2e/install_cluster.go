@@ -19,11 +19,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/banzaicloud/koperator/api/v1beta1"
 	"github.com/gruntwork-io/terratest/modules/k8s"
-
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
+
+	"github.com/banzaicloud/koperator/api/v1beta1"
 )
 
 // requireCreatingKafkaCluster creates a KafkaCluster and
